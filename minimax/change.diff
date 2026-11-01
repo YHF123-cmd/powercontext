@@ -1,0 +1,9 @@
+--- a/src/user_service.cpp
++++ b/src/user_service.cpp
+@@ -15,6 +15,9 @@
+     std::string getUserInfo(const std::string& user_id) {
++        if (user_id.empty()) {
++            return "Error: user_id cannot be empty";
++        }
+         return db.query("SELECT * FROM users WHERE id = '" + user_id + "'");
+     }
